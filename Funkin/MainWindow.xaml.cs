@@ -62,6 +62,8 @@ namespace Funkin
         static Image debug_bg2;
         static Image debug_logo1;
         static TextBlock debug_name;
+        static Button debug_logo_button;
+        static Button debug_log_button;
 
         static TextBlock fps_count;
 
@@ -100,12 +102,19 @@ namespace Funkin
 
         //SOMETHING
         public static Window wdw;
+        public static Window1 debugCl;
 
         public MainWindow()
         {
             wtrmrkTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/watermark.txt");
             verTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/version.txt");
+
+            debugCl = new Window1();
+            debugCl.Show();
+
             InitializeComponent(); LogMessage("WINDOW INIT CALLED");
+            Closed += MainWindow_Closed;
+
             wdw = this;
             CheckFocus();
             focused = true;
@@ -235,6 +244,11 @@ namespace Funkin
             img.Visibility = Visibility.Hidden;
 
             ShowTexts(texts, present, ass, rand, fnfText, img, logo, enter); LogMessage("SHOW TEXT ANIMATION, USER PROBABLY SEES THE WINDOW!");
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            debugCl.Close();
         }
 
         public static bool focused = true;
@@ -724,6 +738,8 @@ namespace Funkin
             EventLog.WriteEntry(source, message, EventLogEntryType.Information);
             Console.WriteLine("[" + source + "] [ INFO ] " + message);
             Debug.WriteLine("[" + source + "] [ INFO ] " + message);
+
+            debugCl.AddLog(new Log("[" + source + "] [ INFO ] " + message));
         }
 
         public static void LogWarning(string message)
@@ -740,6 +756,8 @@ namespace Funkin
             EventLog.WriteEntry(source, message, EventLogEntryType.Warning);
             Console.WriteLine("[" + source + "] [ WARN ] " + message);
             Debug.WriteLine("[" + source + "] [ WARN ] " + message);
+
+            debugCl.AddLog(new Log("[" + source + "] [ WARN ] " + message));
         }
 
         public static void LogError(string message)
@@ -756,6 +774,8 @@ namespace Funkin
             EventLog.WriteEntry(source, message, EventLogEntryType.Error);
             Console.WriteLine("[" + source + "] [ ERR ] " + message);
             Debug.WriteLine("[" + source + "] [ ERR ] " + message);
+
+            debugCl.AddLog(new Log("[" + source + "] [ ERR ] " + message));
         }
 
         /*
