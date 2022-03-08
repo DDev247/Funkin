@@ -1,0 +1,180 @@
+﻿<Window x:Class="Funkin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Funkin"
+        mc:Ignorable="d"
+        Background="Black"
+        Title="MainWindow" Height="768" Width="1366">
+    <Grid>
+
+        <!-- Creators -->
+        <TextBlock 
+        Visibility="Visible" Name="Creators1" HorizontalAlignment="Center" Margin="0,0,0,300" Text="NINJAMUFFIN" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White" 
+        />
+        <TextBlock 
+        Visibility="Hidden" Name="Creators2" HorizontalAlignment="Center" Margin="0,0,0,150" Text="KAWAISPRITE" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White" 
+        />
+        <TextBlock 
+        Visibility="Hidden" Name="Creators3" HorizontalAlignment="Center" Margin="0,0,0,0" Text="PHANTOMARCADE" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+        <TextBlock 
+        Visibility="Hidden" Name="Creators4" HorizontalAlignment="Center" Margin="0,150,0,0" Text="EVILSKER" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+        <TextBlock 
+        Visibility="Hidden" Name="DDev" HorizontalAlignment="Center" Margin="0,300,0,0" Text="DDEV" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+        <!-- Creators End -->
+
+        <!-- Present -->
+        <TextBlock 
+        Visibility="Hidden" Name="Present" HorizontalAlignment="Center" Margin="0,450,0,0" Text="PRESENT" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+        <!-- Present End -->
+
+        <!-- Association -->
+        <TextBlock 
+        Visibility="Hidden" Name="In_Association" HorizontalAlignment="Center" Margin="0,0,0,300" Text="IN ASSOCIATION WITH" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+
+        <TextBlock 
+        Visibility="Hidden" Name="Nobody" HorizontalAlignment="Center" Margin="0,0,0,150" Text="NOBODY" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+        <!-- Association End -->
+
+        <!-- Random -->
+        <TextBlock 
+        Visibility="Hidden" Name="Rand1" HorizontalAlignment="Center" Margin="0,0,0,300" Text="r1" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White" 
+        />
+
+        <TextBlock 
+        Visibility="Hidden" Name="Rand2" HorizontalAlignment="Center" Margin="0,0,0,50" Text="r2" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White" 
+        />
+        <!-- Random End -->
+
+        <!-- FNF' -->
+        <TextBlock 
+        Visibility="Hidden" Name="fnf1" HorizontalAlignment="Center" Margin="0,0,0,150" Text="FRIDAY" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+
+        <TextBlock 
+        Visibility="Hidden" Name="fnf2" HorizontalAlignment="Center" Margin="0,0,0,0" Text="NIGHT" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+
+        <TextBlock 
+        Visibility="Hidden" Name="fnf3" HorizontalAlignment="Center" Margin="0,150,0,0" Text="FUNKIN" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Friday Funkin" FontSize="75" FontWeight="Normal" Foreground="White"
+        />
+        <!-- Random End -->
+
+        <!-- ENTER MENU -->
+        <Image
+        Visibility="Visible" Name="LOGO_ENTER" HorizontalAlignment="Left" VerticalAlignment="Top" Source="img/logo.png" Stretch="None" Margin="188,116,0,0" Height="191" Width="300" RenderTransformOrigin="0.5,0.5" 
+        >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image
+        Visibility="Visible" Name="GF_ENTER" HorizontalAlignment="Right" VerticalAlignment="Top" Source="img/0.png" Stretch="None" Margin="0,50,0,0" Height="634" Width="699" 
+        />
+
+        <TextBlock 
+        Visibility="Visible" Name="PRESS_ENTER" HorizontalAlignment="Center" Margin="0,500,0,0" Text="PRESS ENTER TO BEGIN" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="VCR OSD Mono" FontSize="90" FontWeight="Normal" Foreground="Cyan"
+        />
+
+        <TextBlock 
+        Visibility="Visible" Name="FLASH_ENTER" HorizontalAlignment="Center" Margin="0,500,0,0" Text="PRESS ENTER TO BEGIN" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="VCR OSD Mono" FontSize="90" FontWeight="Normal" Foreground="Cyan"
+        />
+
+        <Image
+        Visibility="Hidden" Name="Flash_ENTER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1366" Height="768" Source="img/empty.png" Stretch="Fill"
+        />
+
+        <!-- Selection -->
+
+        <Image
+        Visibility="Visible" Name="BG" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1366" Height="768" Source="img/menuBG.png" Stretch="Fill" Margin="0,0,0,0"
+        />
+
+        <Image
+        Visibility="Hidden" Name="BGBlue" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1366" Height="768" Source="img/menuBGBlue.png" Stretch="Fill" Margin="0,0,0,0"
+        />
+
+        <Image
+        Visibility="Visible" Name="FP" HorizontalAlignment="Center" VerticalAlignment="Center" Width="606" Height="155" Source="img/freeplay basic0000.png" Stretch="Fill" Margin="0,0,0,250"
+        />
+        <Image
+        Visibility="Visible" Name="OPT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="606" Height="155" Source="img/options basic0000.png" Stretch="Fill" Margin="0,250,0,0"
+        />
+
+        <!-- Selection End -->
+
+        <!-- Fade -->
+        <Image
+        Visibility="Hidden" Name="FADE_IN" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1366" Height="1000" Source="img/unveil.png" Stretch="Fill" Margin="0,0,0,0"
+        />
+
+        <Image
+        Visibility="Hidden" Name="FADE_OUT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1366" Height="1000" Source="img/hide.png" Stretch="Fill" Margin="0,750,0,0"
+        />
+
+        <Image
+        Visibility="Hidden" Name="FADE_MASK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1366" Height="1000" Source="img/blk.png" Stretch="Fill" Margin="0,750,0,0" OpacityMask="Black"
+        />
+        <!-- Fade End -->
+
+        <!-- FPS COUNTER -->
+        <TextBlock 
+        Visibility="Visible" Name="FPS_COUNTER" HorizontalAlignment="Left" Margin="17.5,10,0,0" Text="render: 0/0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="20" FontWeight="Normal" Foreground="White"
+        />
+
+        <!-- WATERMARK PLZ DON'T TOUCH -->
+        <TextBlock 
+        Visibility="Visible" Name="WTRMRK" HorizontalAlignment="Left" Margin="10,0,0,5" Text="FnF.cs" TextWrapping="Wrap" VerticalAlignment="Bottom" FontFamily="Open Sans" FontSize="20" FontWeight="Normal" Foreground="White"
+        />
+
+        <!-- VOLUME CHANGE -->
+        <Image
+        Visibility="Visible" Name="VOL_BG" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Height="100" Source="img/blk.png" Stretch="Fill" Margin="0,0,0,0" OpacityMask="#B2FFFFFF"
+        />
+        <TextBlock 
+        Visibility="Visible" Name="VOL_TEXT" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" Text="VOLUME:0.5" TextWrapping="Wrap" FontFamily="VCR OSD Mono" FontSize="35" FontWeight="Normal" Foreground="White"
+        />
+        
+        <!-- DEBUG MENU -->
+        <Image
+        Visibility="Visible" Name="DEBUG_BG1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1366" Height="35" Source="img/blk.png" Stretch="Fill" Margin="0,0,0,0" OpacityMask="#B2FFFFFF"
+        />
+        <TextBlock 
+        Visibility="Visible" Name="DEBUG_TEXT1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Text="funkin.cs" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        />
+        <Image
+        Visibility="Visible" Name="DEBUG_LOGO1" HorizontalAlignment="Left" VerticalAlignment="Top" Source="img/c#logo.png" Stretch="Fill" Margin="150,0,0,0" Width="35" Height="35" Cursor="Help" Hyperlink.Click="DEBUG_LOGO1_Click"
+        />
+
+        <Image
+        Visibility="Visible" Name="DEBUG_BG2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="400" Height="300" Source="img/blk.png" Stretch="Fill" Margin="0,35,0,0" OpacityMask="#B2FFFFFF"
+        />
+        <TextBlock 
+        Visibility="Visible" Name="DEBUG_MEM_USAGE" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,56,0,0" Text="mem=123" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        />
+        <TextBlock 
+        Visibility="Visible" Name="DEBUG_PEAK_MEM" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,96,0,0" Text="peak_mem=123" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        />
+        <TextBlock 
+        Visibility="Visible" Name="DEBUG_CPU_TIME" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,136,0,0" Text="time=20sec" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        />
+
+        <TextBlock 
+        Visibility="Visible" Name="DEBUG_VERSION" HorizontalAlignment="Right" VerticalAlignment="Top" Text="ver." TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        />
+
+    </Grid>
+</Window>
