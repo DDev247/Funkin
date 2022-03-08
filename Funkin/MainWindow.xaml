@@ -150,17 +150,20 @@
         
         <!-- DEBUG MENU -->
         <Image
-        Visibility="Visible" Name="DEBUG_BG1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1366" Height="35" Source="img/blk.png" Stretch="Fill" Margin="0,0,0,0" OpacityMask="#B2FFFFFF"
+        Visibility="Visible" Name="DEBUG_BG1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1366" Height="45" Source="img/blk.png" Stretch="Fill" Margin="0,0,0,0" OpacityMask="#B2FFFFFF"
         />
         <TextBlock 
         Visibility="Visible" Name="DEBUG_TEXT1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Text="funkin.cs" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
         />
         <Image
-        Visibility="Visible" Name="DEBUG_LOGO1" HorizontalAlignment="Left" VerticalAlignment="Top" Source="img/c#logo.png" Stretch="Fill" Margin="150,0,0,0" Width="35" Height="35" Cursor="Help" Hyperlink.Click="DEBUG_LOGO1_Click"
+        Visibility="Visible" Name="DEBUG_LOGO1" HorizontalAlignment="Left" VerticalAlignment="Top" Source="img/c#logo.png" Stretch="Fill" Margin="150,0,0,0" Width="35" Height="35"
+        />
+        <Button
+        Visibility="Visible" Name="DEBUG_LOGO_BUTTON" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,0,0,0" Width="35" Height="35" Background="Transparent" BorderBrush="Transparent" Click="DEBUG_LOGO1_Click" Cursor="Help"
         />
 
         <Image
-        Visibility="Visible" Name="DEBUG_BG2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="400" Height="300" Source="img/blk.png" Stretch="Fill" Margin="0,35,0,0" OpacityMask="#B2FFFFFF"
+        Visibility="Visible" Name="DEBUG_BG2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="400" Height="300" Source="img/blk.png" Stretch="Fill" Margin="0,45,0,0" OpacityMask="#B2FFFFFF"
         />
         <TextBlock 
         Visibility="Visible" Name="DEBUG_MEM_USAGE" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,56,0,0" Text="mem=123" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"

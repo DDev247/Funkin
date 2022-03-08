@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+
+    Hello! This is my little project which I have been
+    working on for quite a while now!
+    
+    It is a preety crappy Friday Night Funkin clone.
+    The original game can be found here:
+    https://github.com/ninjamuffin99/Funkin
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,7 +103,6 @@ namespace Funkin
 
         public MainWindow()
         {
-            //LogMessage("HELLO WORLD!!");
             wtrmrkTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/watermark.txt");
             verTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/version.txt");
             InitializeComponent(); LogMessage("WINDOW INIT CALLED");
@@ -224,7 +234,7 @@ namespace Funkin
             }
             img.Visibility = Visibility.Hidden;
 
-            ShowTexts(texts, present, ass, rand, fnfText, img, logo, enter); LogMessage("SHOW TEXT ANIMATION\nUSER PROBABLY SEES THE WINDOW!");
+            ShowTexts(texts, present, ass, rand, fnfText, img, logo, enter); LogMessage("SHOW TEXT ANIMATION, USER PROBABLY SEES THE WINDOW!");
         }
 
         public static bool focused = true;
@@ -239,7 +249,7 @@ namespace Funkin
             }
         }
 
-        static double lastVol;
+        static double lastVol = 1;
         static bool lastFocus;
         static void focusVol()
         {
@@ -250,12 +260,14 @@ namespace Funkin
                 {
                     lastFocus = focused;
                     curVol = lastVol;
+                    LogMessage("FOCUS RESTORED!");
                 }
                 else if(lastFocus == true && focused == false)
                 {
                     lastFocus = focused;
                     lastVol = curVol;
                     curVol = 0;
+                    LogMessage("FOCUS LOST!");
                 }
             }
         }
@@ -1220,8 +1232,24 @@ namespace Funkin
 
         private void DEBUG_LOGO1_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/DDev247");
             LogMessage("OPENING GITHUB!!!");
+            try
+            {
+                var uri = "https://github.com/DDev247/Funkin";
+                var psi = new System.Diagnostics.ProcessStartInfo();
+                psi.UseShellExecute = true;
+                psi.FileName = uri;
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message, "Opening Github failed!"); LogError("OPENING GITHUB FAILED: " + noBrowser.Message);
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message, "Opening Github failed!"); LogError("OPENING GITHUB FAILED: " + other.Message);
+            }
         }
     }
 
