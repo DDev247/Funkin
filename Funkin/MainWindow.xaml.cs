@@ -103,16 +103,31 @@ namespace Funkin
         //SOMETHING
         public static Window wdw;
         public static Window1 debugCl;
+        public static string[] debugList = new string[0];
 
         public MainWindow()
         {
-            wtrmrkTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/watermark.txt");
-            verTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/version.txt");
+            debugCl = new Window1(this, false);
 
-            debugCl = new Window1();
+#if DEBUG
             debugCl.Show();
+#endif
 
-            InitializeComponent(); LogMessage("WINDOW INIT CALLED");
+            wtrmrkTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/watermark.txt"); LogMessage("MAIN: LOADING watermark.txt!!!");
+            verTXT = File.ReadAllText(Environment.CurrentDirectory + "/assets/version.txt"); LogMessage("MAIN: LOADING version.txt!!!");
+
+            if (wtrmrkTXT == "funkin.cs demo ")
+                LogMessage("MAIN: GOOD, wtrmrkTXT IS EQUAL TO 'funkin.cs demo '");
+            else
+            {
+                LogError("MAIN: wtrmrkTXT ISN'T EQUAL TO 'funkin.cs demo'. READ FAILURE?");
+                MessageBox.Show("The code has detected that you messed with the files!\nPlease relaunch the game to ensure the file was read correctly!", "Oh no!");
+                Environment.Exit(1);
+            }
+
+            LogMessage($"MAIN: WELCOME, VERSION {verTXT}");
+
+            InitializeComponent(); LogMessage("MAIN: WINDOW INIT CALLED");
             Closed += MainWindow_Closed;
 
             wdw = this;
@@ -121,7 +136,7 @@ namespace Funkin
             ForceWindowSize();
             fps_count = FindName("FPS_COUNTER") as TextBlock;
             StartFPS();
-            //CheckGC(); this shit is useless
+            CheckGC(); 
             volBG = FindName("VOL_BG") as Image;
             volTXT = FindName("VOL_TEXT") as TextBlock;
             CheckInputVolume();
@@ -148,6 +163,7 @@ namespace Funkin
 
             debug_version.Text = "ver" + verTXT;
 
+            LogMessage("MAIN: LOADING DEBUG BITMAPS!");
             BitmapImage bitt1 = new BitmapImage();
             bitt1.BeginInit();
             bitt1.UriSource = new Uri(Environment.CurrentDirectory + "/assets/images/blk.png");
@@ -243,7 +259,13 @@ namespace Funkin
             }
             img.Visibility = Visibility.Hidden;
 
-            ShowTexts(texts, present, ass, rand, fnfText, img, logo, enter); LogMessage("SHOW TEXT ANIMATION, USER PROBABLY SEES THE WINDOW!");
+            ShowTexts(texts, present, ass, rand, fnfText, img, logo, enter); LogMessage("MAIN: SHOW TEXT ANIMATION, USER PROBABLY SEES THE WINDOW!");
+        }
+
+        public void Debug_Closed(object sender, EventArgs e)
+        {
+            //debugCl = new Window1(this, true);
+            //debugCl.Show();
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
@@ -274,14 +296,14 @@ namespace Funkin
                 {
                     lastFocus = focused;
                     curVol = lastVol;
-                    LogMessage("FOCUS RESTORED!");
+                    LogMessage("WDWMONITOR: FOCUS RESTORED!");
                 }
                 else if(lastFocus == true && focused == false)
                 {
                     lastFocus = focused;
                     lastVol = curVol;
                     curVol = 0;
-                    LogMessage("FOCUS LOST!");
+                    LogMessage("WDWMONITOR: FOCUS LOST!");
                 }
             }
         }
@@ -306,7 +328,7 @@ namespace Funkin
 
         static async Task ShowTexts(TextBlock[] txts, TextBlock prst, TextBlock[] ass, TextBlock[] rand, TextBlock[] fnf, Image img, Image img2, TextBlock press) //not THAT ass ;)
         {
-            string r = File.ReadAllText(Environment.CurrentDirectory + "/assets/introText.txt"); LogMessage("LOADING introText.txt!!!");
+            string r = File.ReadAllText(Environment.CurrentDirectory + "/assets/introText.txt"); LogMessage("TXTANIM: LOADING introText.txt!!!");
             char[] splitter = { '\n' };
             randTXT = r.Split(splitter);
             txts[0].Visibility = Visibility.Visible;
@@ -370,7 +392,7 @@ namespace Funkin
             img.Source = bit;
 
             flash = img;
-            ShowEnter(); LogMessage("SHOWING ENTER!!!");
+            ShowEnter(); LogMessage("TXTANIM: SHOWING ENTER SCREEN!!!");
         }
 
         static async Task WaitForEnter()
@@ -384,7 +406,7 @@ namespace Funkin
                 {
                     if (e.Key == Key.Enter && !pressedEnter)
                     {
-                        pressedEnter = true; LogMessage("ENTER PRESSED!!!");
+                        pressedEnter = true; LogMessage("ENTERSCR: ENTER PRESSED!!!");
                         SoundPlayer sp = new();
                         FlashText();
                         await sp.PlaySound(Environment.CurrentDirectory + "/assets/music/confirm.wav", curVol);
@@ -411,7 +433,7 @@ namespace Funkin
                 flash.Opacity -= 0.01;
                 await Task.Delay(10);
             }
-            WaitForEnter(); LogMessage("WAITING FOR ENTER...");
+            WaitForEnter(); LogMessage("ENTERSCR: WAITING FOR ENTER...");
         }
 
         static async Task ShowMenu()
@@ -459,6 +481,11 @@ namespace Funkin
                     sp.PlaySound(Environment.CurrentDirectory + "/assets/music/select.wav", curVol);
                     MENU_CameraGoToX(0);
                     await MENU_CameraGoToY(250);
+
+                    while (Keyboard.IsKeyDown(Key.Up))
+                    {
+                        await Task.Delay(1);
+                    }
                 }
                 else if(Keyboard.IsKeyDown(Key.Down) && focused)
                 {
@@ -468,6 +495,11 @@ namespace Funkin
                     sp.PlaySound(Environment.CurrentDirectory + "/assets/music/select.wav", curVol);
                     MENU_CameraGoToX(0);
                     await MENU_CameraGoToY(-250);
+
+                    while(Keyboard.IsKeyDown(Key.Down))
+                    {
+                        await Task.Delay(1);
+                    }
                 }
                 else if(Keyboard.IsKeyDown(Key.Enter) && focused)
                 {
@@ -478,7 +510,11 @@ namespace Funkin
                         AnimFP(bitFP1, bitFP2);
                         await sp.PlaySound(Environment.CurrentDirectory + "/assets/music/confirm.wav", curVol);
                         LogMessage("SHOWING MENU: LOADING FREEPLAY!"); 
-                        ShowFP(); 
+                        ShowFP();
+                        while (Keyboard.IsKeyDown(Key.Enter))
+                        {
+                            await Task.Delay(1);
+                        }
                     }
                     else if (CamY_MENU == -250)
                     {
@@ -487,7 +523,11 @@ namespace Funkin
                         AnimOPT(bitOPT1, bitOPT2);
                         await sp.PlaySound(Environment.CurrentDirectory + "/assets/music/confirm.wav", curVol);
                         LogMessage("SHOWING MENU: LOADING OPTIONS!"); 
-                        ShowOPT(); 
+                        ShowOPT();
+                        while (Keyboard.IsKeyDown(Key.Enter))
+                        {
+                            await Task.Delay(1);
+                        }
                     }
                 }
                 else if(Keyboard.IsKeyDown(Key.Back) && focused)
@@ -736,10 +776,11 @@ namespace Funkin
                 EventLog.CreateEventSource(source, log);
 
             EventLog.WriteEntry(source, message, EventLogEntryType.Information);
-            Console.WriteLine("[" + source + "] [ INFO ] " + message);
+            Console.WriteLine("[" + source + "] @ [ INFO ] " + message);
             Debug.WriteLine("[" + source + "] [ INFO ] " + message);
 
             debugCl.AddLog(new Log("[" + source + "] [ INFO ] " + message));
+            debugList.Append("[" + source + "] [ INFO ] " + message);
         }
 
         public static void LogWarning(string message)
@@ -758,6 +799,7 @@ namespace Funkin
             Debug.WriteLine("[" + source + "] [ WARN ] " + message);
 
             debugCl.AddLog(new Log("[" + source + "] [ WARN ] " + message));
+            debugList.Append("[" + source + "] [ WARN ] " + message);
         }
 
         public static void LogError(string message)
@@ -776,6 +818,7 @@ namespace Funkin
             Debug.WriteLine("[" + source + "] [ ERR ] " + message);
 
             debugCl.AddLog(new Log("[" + source + "] [ ERR ] " + message));
+            debugList.Append("[" + source + "] [ ERR ] " + message);
         }
 
         /*
@@ -944,10 +987,24 @@ namespace Funkin
             while (true)
             {
                 if (cool > 0) { cool--; }
-                if (memUsage > 500 && cool == 0)
+                if (memUsage > 1536 && cool == 0)
                 {
                     GC.Collect();
-                    cool += 10;
+                    LogWarning("GRBC: WARNING MEMORY USAGE OVER 1,5 GB! KILLING THE APP!!!");
+                    Environment.Exit(1);
+                    cool += 100;
+                }
+                else if (memUsage > 1024 && cool == 0)
+                {
+                    GC.Collect();
+                    LogWarning("GRBC: WARNING MEMORY USAGE OVER 1 GB! KILLING THE APP WHEN IT REACHES 1,5 GB!!!");
+                    cool += 100;
+                }
+                else if (memUsage > 500 && cool == 0)
+                {
+                    GC.Collect();
+                    LogWarning("GRBC: WARNING MEMORY USAGE OVER 500 MB!");
+                    cool += 100;
                 }
                 await Task.Delay(1);
             }

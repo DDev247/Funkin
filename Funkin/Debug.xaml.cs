@@ -16,11 +16,39 @@ namespace Funkin
     public partial class Window1 : Window
     {
         public static ListBox lb;
+        public MainWindow parent;
 
-        public Window1()
+        public Window1(MainWindow main, bool wasClosed)
         {
             InitializeComponent();
             lb = LB;
+            parent = main;
+            //Scroll();
+            Closed += parent.Debug_Closed;
+            after(wasClosed);
+        }
+
+        static async Task after(bool wasClosed)
+        {
+            
+            if (wasClosed)
+            {
+                foreach (string s in MainWindow.debugList)
+                {
+                    lb.Items.Add(s);
+                    MainWindow.LogMessage("LOADING: " + s);
+                }
+            }
+            //MainWindow.LogMessage("wasclosed: " + wasClosed);
+        }
+
+        static async Task Scroll()
+        {
+            while (true)
+            {
+                lb.BringIntoView();
+                await Task.Delay(1);
+            }
         }
 
         public async Task AddLog(Log log)
