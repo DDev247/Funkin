@@ -8,4 +8,4 @@
  Because why not?
 
 # Will there ever be gameplay?
- Yes and No. Yes because I plan on doing this but No because I think it will be preety hard and for now I want to polish the main menu.
+ Yes and No. Yes because I plan on doing this but No because I think it will be pretty hard and for now I want to polish the main menu.
