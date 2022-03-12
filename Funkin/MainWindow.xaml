@@ -132,12 +132,12 @@
 
         <!-- FPS COUNTER -->
         <TextBlock 
-        Visibility="Visible" Name="FPS_COUNTER" HorizontalAlignment="Left" Margin="17.5,10,0,0" Text="render: 0/0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Open Sans" FontSize="20" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="FPS_COUNTER" HorizontalAlignment="Left" Margin="17.5,10,0,0" Text="render: 0/0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="20" FontWeight="Normal" Foreground="White"
         />
 
         <!-- WATERMARK PLZ DON'T TOUCH -->
         <TextBlock 
-        Visibility="Visible" Name="WTRMRK" HorizontalAlignment="Left" Margin="10,0,0,5" Text="FnF.cs" TextWrapping="Wrap" VerticalAlignment="Bottom" FontFamily="Open Sans" FontSize="20" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="WTRMRK" HorizontalAlignment="Left" Margin="10,0,0,5" Text="FnF.cs" TextWrapping="Wrap" VerticalAlignment="Bottom" FontFamily="Trebuchet MS" FontSize="20" FontWeight="Normal" Foreground="White"
         />
 
         <!-- VOLUME CHANGE -->
@@ -153,7 +153,7 @@
         Visibility="Visible" Name="DEBUG_BG1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1366" Height="45" Source="img/blk.png" Stretch="Fill" Margin="0,0,0,0" OpacityMask="#B2FFFFFF"
         />
         <TextBlock 
-        Visibility="Visible" Name="DEBUG_TEXT1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Text="funkin.cs" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="DEBUG_TEXT1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Text="funkin.cs" TextWrapping="Wrap" FontFamily="Trebuchet MS" FontSize="35" FontWeight="Normal" Foreground="White"
         />
         <Image
         Visibility="Visible" Name="DEBUG_LOGO1" HorizontalAlignment="Left" VerticalAlignment="Top" Source="img/c#logo.png" Stretch="Fill" Margin="150,0,0,0" Width="35" Height="35"
@@ -166,17 +166,17 @@
         Visibility="Visible" Name="DEBUG_BG2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="400" Height="300" Source="img/blk.png" Stretch="Fill" Margin="0,45,0,0" OpacityMask="#B2FFFFFF"
         />
         <TextBlock 
-        Visibility="Visible" Name="DEBUG_MEM_USAGE" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,56,0,0" Text="mem=123" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="DEBUG_MEM_USAGE" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,56,0,0" Text="mem=123" TextWrapping="Wrap" FontFamily="Trebuchet MS" FontSize="35" FontWeight="Normal" Foreground="White"
         />
         <TextBlock 
-        Visibility="Visible" Name="DEBUG_PEAK_MEM" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,96,0,0" Text="peak_mem=123" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="DEBUG_PEAK_MEM" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,96,0,0" Text="peak_mem=123" TextWrapping="Wrap" FontFamily="Trebuchet MS" FontSize="35" FontWeight="Normal" Foreground="White"
         />
         <TextBlock 
-        Visibility="Visible" Name="DEBUG_CPU_TIME" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,136,0,0" Text="time=20sec" TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="DEBUG_CPU_TIME" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,136,0,0" Text="time=20sec" TextWrapping="Wrap" FontFamily="Trebuchet MS" FontSize="35" FontWeight="Normal" Foreground="White"
         />
 
         <TextBlock 
-        Visibility="Visible" Name="DEBUG_VERSION" HorizontalAlignment="Right" VerticalAlignment="Top" Text="ver." TextWrapping="Wrap" FontFamily="Open Sans" FontSize="35" FontWeight="Normal" Foreground="White"
+        Visibility="Visible" Name="DEBUG_VERSION" HorizontalAlignment="Right" VerticalAlignment="Top" Text="ver." TextWrapping="Wrap" FontFamily="Trebuchet MS" FontSize="35" FontWeight="Normal" Foreground="White"
         />
 
     </Grid>

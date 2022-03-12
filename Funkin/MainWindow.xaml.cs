@@ -3,7 +3,7 @@
     Hello! This is my little project which I have been
     working on for quite a while now!
     
-    It is a preety crappy Friday Night Funkin clone.
+    It is a pretty crappy Friday Night Funkin clone.
     The original game can be found here:
     https://github.com/ninjamuffin99/Funkin
 

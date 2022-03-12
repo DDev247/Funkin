@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Funkin.cs Debug Console" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="LB" FontFamily="Open Sans"/>
+        
+        <ListBox x:Name="LB" FontFamily="Trebuchet MS"/>
 
     </Grid>
 </Window>
